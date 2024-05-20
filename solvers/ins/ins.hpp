@@ -191,7 +191,7 @@ public:
                  const dfloat beta,  deviceMemory<dfloat>& o_RHS,
                  const dfloat T);
 
-  void BodyForce(const dfloat T, deviceMemory<dfloat>& o_RHS);
+  //void BodyForce(const dfloat T, deviceMemory<dfloat>& o_RHS);
 
   void Diffusion(const dfloat alpha, deviceMemory<dfloat>& o_U,
                  const dfloat beta,  deviceMemory<dfloat>& o_RHS,

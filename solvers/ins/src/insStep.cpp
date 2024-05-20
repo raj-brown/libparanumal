@@ -151,7 +151,7 @@ void ins_t::rhs_subcycle_f(deviceMemory<dfloat>& o_U, deviceMemory<dfloat>& o_UH
   }
 }
 
-void ins_t::rhs_imex_body_force(deviceMemory<dfloat>& o_U, deviceMemory<dfloat>& o_RHS, const dfloat T){
-
-
-}
+//void ins_t::rhs_imex_body_force(deviceMemory<dfloat>& o_U, deviceMemory<dfloat>& o_RHS, const dfloat T){
+//
+//
+//}
