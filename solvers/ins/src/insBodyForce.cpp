@@ -24,24 +24,10 @@ SOFTWARE.
 
 */
 
-@kernel void insBodyForcing2D(const dfloat time,
-                              @restrict const  dfloat *  x,
-                              @restrict const  dfloat *  y,
-                              @restrict const  dfloat *  z,
-                              @restrict        dfloat *  rhs_U){
+#include "ins.hpp"
 
-  for(dlong e=0;e<Nelements;++e;@outer(0)){
-    for(int n=0;n<p_Np;++n;@inner(0)){
-      const dlong id = e*p_Np + n;
-      const dlong iid = e*p_Np*p_NVfields + n;
-
-      dfloat rhs_u = 0.0;
-      dfloat rhs_v = 0.0;
-
-      insBodyForcing2D(time, x[id], y[id], &rhs_u, &rhs_v);
-
-      rhs_U[iid+0*p_Np] += rhs_u;
-      rhs_U[iid+1*p_Np] += rhs_v;
-    }
-  }
+// compute RHS = beta*RHS + alpha*N(U)
+void ins_t::BodyForce(const dfloat T, deviceMemory<dfloat>& o_RHS)
+{
+	bodyForcingKernel(T, mesh.o_x, mesh.o_y, mesh.o_z, o_RHS);
 }

@@ -112,8 +112,8 @@ void ins_t::rhs_imex_f(deviceMemory<dfloat>& o_U, deviceMemory<dfloat>& o_RHS, c
   Advection(1.0, o_U, 0.0, o_RHS, T);
 }
 
-void ins_t::rhs_imex_body_force(deviceMemory<dfloat>& o_RHS, const dfloat T){
-   printf("\r In Forcing Kernel!");
+void ins_t::rhs_imex_body_force(const dfloat T, deviceMemory<dfloat>& o_RHS){
+       BodyForce(T, o_RHS);
 }
 
 
