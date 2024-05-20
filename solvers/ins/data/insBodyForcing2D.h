@@ -24,35 +24,13 @@ SOFTWARE.
 
 */
 
-#include "ins.hpp"
+#define f_ubar 0.0
+#define f_vbar 2.0
 
-// compute RHS = beta*RHS + alpha*N(U)
-void ins_t::BodyForce(const dfloat alpha, deviceMemory<dfloat>& o_U,
-                      const dfloat beta,  deviceMemory<dfloat>& o_RHS,
-                      const dfloat T) {
-
-    vTraceHalo.ExchangeStart(o_U, 1);
-
-    if (cubature)
-        BodyForceKernel(mesh.o_vgeo,
-                              mesh.o_cubvgeo,
-                              mesh.o_cubD,
-                              mesh.o_cubPDT,
-                              mesh.o_cubInterp,
-                              mesh.o_cubProject,
-                              alpha,
-                              beta,
-                              o_U,
-                              o_RHS);
-    else
-        BodyForceKernel(mesh.Nelements,
-                              mesh.o_vgeo,
-                              mesh.o_D,
-                              alpha,
-                              beta,
-                              o_U,
-                              o_RHS);
-
-    vTraceHalo.ExchangeFinish(o_U, 1);
-
+// Forcing functions
+#define insInitialConditions3D(t,x,y, *f_u, *f_v) \
+  {                                     \
+    *(f_u) = f_ubar;                    \
+    *(f_v) = f_vbar;                    \
 }
+
