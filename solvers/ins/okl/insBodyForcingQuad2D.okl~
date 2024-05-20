@@ -24,17 +24,14 @@ SOFTWARE.
 
 */
 
-@kernel void insBodyForcing2D(const dlong Nelements,
-                              const dfloat time,
+@kernel void insBodyForcing2D(const dfloat time,
                               @restrict const  dfloat *  x,
                               @restrict const  dfloat *  y,
                               @restrict const  dfloat *  z,
                               @restrict        dfloat *  rhs_U){
 
-  
-
-  for(int e=0;e<Nelements;++e;@outer){
-    for(int n=0;n<p_Np;++n;@inner){
+  for(dlong e=0;e<Nelements;++e;@outer(0)){
+    for(int n=0;n<p_Np;++n;@inner(0)){
       const dlong id = e*p_Np + n;
       const dlong iid = e*p_Np*p_NVfields + n;
 

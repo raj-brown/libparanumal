@@ -490,8 +490,11 @@ void ins_t::Setup(platform_t& _platform, mesh_t& _mesh,
   //Forcing Kernel
 
   fileName   = oklFilePrefix + "insBodyForcing" + suffix + oklFileSuffix;
-  kernelName = "insBodyForcing" + suffix;
-
+  if(mesh.dim==2)
+    kernelName = "insBodyForcing2D";
+  else
+    kernelName = "insBodyForcing3D";
+  
   bodyForcingKernel = platform.buildKernel(fileName, kernelName, kernelInfo);
 
 

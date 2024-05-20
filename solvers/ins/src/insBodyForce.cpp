@@ -29,5 +29,5 @@ SOFTWARE.
 // compute RHS = beta*RHS + alpha*N(U)
 void ins_t::BodyForce(const dfloat T, deviceMemory<dfloat>& o_RHS)
 {
-	bodyForcingKernel(T, mesh.o_x, mesh.o_y, mesh.o_z, o_RHS);
+  bodyForcingKernel(mesh.Nelements, T, mesh.o_x, mesh.o_y, mesh.o_z, o_RHS);
 }
