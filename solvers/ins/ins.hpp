@@ -156,6 +156,8 @@ public:
   kernel_t initialConditionKernel;
   kernel_t maxWaveSpeedKernel;
 
+  kernel_t
+
   ins_t() = default;
   ins_t(platform_t &_platform, mesh_t &_mesh,
         insSettings_t& _settings) {
@@ -189,7 +191,7 @@ public:
                  const dfloat beta,  deviceMemory<dfloat>& o_RHS,
                  const dfloat T);
 
-  void BodyForce();
+  void BodyForce(const dfloat T, deviceMemory<dfloat>& o_RHS);
 
   void Diffusion(const dfloat alpha, deviceMemory<dfloat>& o_U,
                  const dfloat beta,  deviceMemory<dfloat>& o_RHS,

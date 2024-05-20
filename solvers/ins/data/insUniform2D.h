@@ -27,6 +27,8 @@ SOFTWARE.
 #define p_ubar 1.0
 #define p_vbar 0.0
 #define p_pbar 1.0
+#define f_ubar 0.0
+#define f_vbar 2.0
 
 // Initial conditions
 #define insInitialConditions2D(nu,t,x,y,u,v,p)   \
@@ -113,3 +115,13 @@ SOFTWARE.
     *(pyB) = 0.f;                          \
   }                                        \
 }
+
+
+
+// Forcing functions
+#define insBodyForcing2D(t, x, y, *f_u, *f_v) \
+  {                                     \
+    *(f_u) = f_ubar;                    \
+    *(f_v) = f_vbar;                    \
+}
+

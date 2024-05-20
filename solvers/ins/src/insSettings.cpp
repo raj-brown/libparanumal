@@ -57,7 +57,7 @@ insSettings_t::insSettings_t(comm_t& _comm):
              "1.0",
              "Multiplier for timestep stability bound");
 
-  newSetting("Momentum Forcing Function", "0.0", "2.0");
+  //newSetting("Momentum Forcing Function", "0.0", "2.0");
 
 
   newSetting("NUMBER OF SUBCYCLES",

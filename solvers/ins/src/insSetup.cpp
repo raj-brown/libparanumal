@@ -489,6 +489,12 @@ void ins_t::Setup(platform_t& _platform, mesh_t& _mesh,
   }
   //Forcing Kernel
 
+  fileName   = oklFilePrefix + "insBodyForcing2D" + oklFileSuffix;
+  kernelName = "insBodyForcing2D";
+
+  bodyForcingKernel = platform.build(fileName, kernelName,
+                                     kernelInfo);
+
 
   // diffusion kernels
   if (settings.compareSetting("TIME INTEGRATOR","EXTBDF3")
