@@ -487,6 +487,8 @@ void ins_t::Setup(platform_t& _platform, mesh_t& _mesh,
                                              kernelInfo);
     }
   }
+  //Forcing Kernel
+    if (settings.compareSetting("TIME INTEGRATOR","SSBDF3"))
 
   // diffusion kernels
   if (settings.compareSetting("TIME INTEGRATOR","EXTBDF3")

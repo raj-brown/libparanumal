@@ -150,3 +150,8 @@ void ins_t::rhs_subcycle_f(deviceMemory<dfloat>& o_U, deviceMemory<dfloat>& o_UH
     subStepper.Run(subcycler, o_UHAT, T-n*dt, T-(n-1)*dt);
   }
 }
+
+void ins_t::rhs_imex_body_force(deviceMemory<dfloat>& o_U, deviceMemory<dfloat>& o_RHS, const dfloat T){
+
+
+}

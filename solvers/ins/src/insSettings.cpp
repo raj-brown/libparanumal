@@ -57,6 +57,9 @@ insSettings_t::insSettings_t(comm_t& _comm):
              "1.0",
              "Multiplier for timestep stability bound");
 
+  newSetting("Momentum Forcing Function", "0.0", "2.0");
+
+
   newSetting("NUMBER OF SUBCYCLES",
              "1",
              "Ratio of full timestep size to subcycling step size");
@@ -85,6 +88,7 @@ insSettings_t::insSettings_t(comm_t& _comm):
 
   newSetting("OUTPUT FILE NAME",
              "ins");
+
 
   ellipticAddSettings(*this, "VELOCITY ");
   parAlmond::AddSettings(*this, "VELOCITY ");
