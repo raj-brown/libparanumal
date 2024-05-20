@@ -120,7 +120,7 @@ SOFTWARE.
 
 // Forcing functions
 #define insBodyForcing2D(t, x, y, *f_u, *f_v) \
-  {                                     \
+{                                     \
     *(f_u) = f_ubar;                    \
     *(f_v) = f_vbar;                    \
 }

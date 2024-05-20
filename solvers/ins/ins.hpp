@@ -152,13 +152,14 @@ public:
   kernel_t pressureIncrementBCKernel;
 
   kernel_t vorticityKernel;
+  
 
   kernel_t initialConditionKernel;
   kernel_t maxWaveSpeedKernel;
-
-  kernel_t
-
+  kernel_t bodyForcingKernel;
+  
   ins_t() = default;
+  
   ins_t(platform_t &_platform, mesh_t &_mesh,
         insSettings_t& _settings) {
     Setup(_platform, _mesh, _settings);

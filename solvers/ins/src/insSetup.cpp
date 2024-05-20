@@ -492,8 +492,7 @@ void ins_t::Setup(platform_t& _platform, mesh_t& _mesh,
   fileName   = oklFilePrefix + "insBodyForcing2D" + oklFileSuffix;
   kernelName = "insBodyForcing2D";
 
-  bodyForcingKernel = platform.build(fileName, kernelName,
-                                     kernelInfo);
+  bodyForcingKernel = platform.buildKernel(fileName, kernelName, kernelInfo);
 
 
   // diffusion kernels
